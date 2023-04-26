@@ -4,11 +4,12 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 export const fetchContacts = createAsyncThunk(
-  'contacts/fetchAll',
+  'contacts/fetchContacts',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/contacts');
       console.log(response.data);
+      console.log('wadawd');
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

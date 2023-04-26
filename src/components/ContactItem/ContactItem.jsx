@@ -7,9 +7,11 @@ import { Button, Item, NameContainer, NamePrg } from './ContactItem.styled';
 
 const ContactItem = () => {
   const dispatch = useDispatch();
+
   const contacts = useSelector(getContacts);
 
   const filter = useSelector(getFiltedContacts);
+  // console.log(contacts);
 
   return getVisibleContacts(contacts, filter).map(({ id, name, number }) => {
     return (

@@ -1,5 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/authSlice/operations';
+import {
+  RegisterFormContainer,
+  RegisterFormBox,
+  Label,
+  Input,
+  Button,
+} from './LoginForm.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -19,20 +26,22 @@ export const LoginForm = () => {
   };
 
   return (
-    <form
-      onSubmit={e => {
-        handleSubmit(e);
-      }}
-    >
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <RegisterFormContainer>
+      <RegisterFormBox
+        onSubmit={e => {
+          handleSubmit(e);
+        }}
+      >
+        <Label>
+          Email
+          <Input type="email" name="email" />
+        </Label>
+        <Label>
+          Password
+          <Input type="password" name="password" />
+        </Label>
+        <Button type="submit">Log In</Button>
+      </RegisterFormBox>
+    </RegisterFormContainer>
   );
 };

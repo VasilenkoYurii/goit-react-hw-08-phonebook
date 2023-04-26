@@ -1,15 +1,20 @@
 import styled from '@emotion/styled';
 
 export const Button = styled.button`
-  transition: background-color 0.5s ease;
-  outline: none;
-  border: none;
-  height: 25px;
-  background-color: #5d534b8a;
   width: 75px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #aa9a8e;
+  color: black;
+
+  transition: all 0.5s ease;
 
   &:hover {
-    background-color: #715b4b;
+    background-color: #988270;
+    color: #262626;
   }
 `;
 
