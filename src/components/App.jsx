@@ -1,32 +1,46 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Section from 'components/Section/Section';
-import ContactsList from 'components/ContactsList/ContactsList';
-import Filter from 'components/Filter/Filter';
-import ContactForm from 'components/ContactForm/ContactForm';
-import { fetchContacts } from 'redux/operetions';
-import { getLoading, getError } from 'redux/selectors';
+import { useEffect, lazy } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout';
 
-export function App() {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(getLoading);
-  const error = useSelector(getError);
+const HomePage = lazy(() => import('../pages/Home'));
+const RegisterPage = lazy(() => import('../pages/Register'));
+const LoginPage = lazy(() => import('../pages/Login'));
+const ContactsPage = lazy(() => import('../pages/Contacts'));
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
+export const App = () => {
   return (
-    <>
-      <Section title="Phonebook">
-        <ContactForm />
-      </Section>
-
-      <Section title="Contacts">
-        <Filter />
-        {isLoading && !error && <b>Request in progress...</b>}
-        <ContactsList />
-      </Section>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
+      </Route>
+    </Routes>
   );
-}
+};
+
+// export function App() {
+//   const dispatch = useDispatch();
+//   const isLoading = useSelector(getLoading);
+//   const error = useSelector(getError);
+
+//   useEffect(() => {
+//     dispatch(fetchContacts());
+//   }, [dispatch]);
+
+//   return (
+//     <>
+//       <Section title="Phonebook">
+//         <ContactForm />
+//       </Section>
+
+//       <Section title="Contacts">
+//         <Filter />
+//         {isLoading && !error && <b>Request in progress...</b>}
+//         <ContactsList />
+//       </Section>
+//     </>
+//   );
+// }

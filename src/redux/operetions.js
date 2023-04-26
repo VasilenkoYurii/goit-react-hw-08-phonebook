@@ -4,6 +4,18 @@ import axios from 'axios';
 axios.defaults.baseURL =
   'https://6440f89bfadc69b8e0772202.mockapi.io/goit-contacts/api';
 
+//https://connections-api.herokuapp.com/
+
+// // Utility to add JWT
+// const setAuthHeader = token => {
+//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
+
+// // Utility to remove JWT
+// const clearAuthHeader = () => {
+//   axios.defaults.headers.common.Authorization = '';
+// };
+
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
