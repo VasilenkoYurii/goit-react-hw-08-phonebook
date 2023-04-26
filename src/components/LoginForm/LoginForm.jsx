@@ -1,17 +1,16 @@
-import { RegisterFormBox } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/authSlice/operations';
+import { logIn } from 'redux/authSlice/operations';
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
+
     const form = e.currentTarget;
 
     dispatch(
-      register({
-        name: form.elements.name.value,
+      logIn({
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
@@ -20,11 +19,11 @@ export const RegisterForm = () => {
   };
 
   return (
-    <RegisterFormBox onSubmit={e => handleSubmit(e)}>
-      <label>
-        Username
-        <input type="text" name="name" />
-      </label>
+    <form
+      onSubmit={e => {
+        handleSubmit(e);
+      }}
+    >
       <label>
         Email
         <input type="email" name="email" />
@@ -33,7 +32,7 @@ export const RegisterForm = () => {
         Password
         <input type="password" name="password" />
       </label>
-      <button type="submit">Register</button>
-    </RegisterFormBox>
+      <button type="submit">Log In</button>
+    </form>
   );
 };
