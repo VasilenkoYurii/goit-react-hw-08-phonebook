@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contactsSlice/operetions';
 import { useEffect } from 'react';
+
 import ContactForm from 'components/ContactForm/ContactForm';
 import Filter from 'components/Filter/Filter';
 import ContactsList from 'components/ContactsList/ContactsList';
@@ -21,7 +22,6 @@ const ContactsPage = () => {
         <ContactForm />
         <Filter />
       </ContactsPageBox>
-
       <div>{isLoading && 'Request in progress...'}</div>
       <ContactsList />
     </>

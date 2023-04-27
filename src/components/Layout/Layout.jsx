@@ -3,12 +3,13 @@ import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { AppBar } from '../AppBar/AppBar';
 import { OutletBox } from './Layout.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export const Layout = () => {
   return (
     <>
       <AppBar />
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader />}>
         <OutletBox>
           <Outlet />
         </OutletBox>

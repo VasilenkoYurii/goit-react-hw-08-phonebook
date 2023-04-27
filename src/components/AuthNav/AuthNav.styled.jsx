@@ -3,27 +3,32 @@ import { NavLink } from 'react-router-dom';
 
 export const AuthNavBox = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
 
-  gap: 10px;
+  gap: 15px;
 `;
 
 export const NavLinkStyled = styled(NavLink)`
-  width: 300px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   text-transform: uppercase;
-  background-color: #aa9a8e;
+  font-size: 22px;
+  font-weight: 700;
   color: black;
-  outline: 1px solid black;
+  border-bottom: 4px double black;
 
   transition: all 0.5s ease;
 
+  &.active {
+    color: white;
+    border-bottom: 4px double white;
+
+    &:hover {
+      color: #66d0d0;
+      border-bottom: 4px double #66d0d0;
+    }
+  }
+
   &:hover {
-    background-color: #988270;
-    color: #262626;
+    color: #66d0d0;
+    border-bottom: 4px double #66d0d0;
   }
 `;

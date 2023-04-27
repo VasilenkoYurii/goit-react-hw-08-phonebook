@@ -11,9 +11,18 @@ export const RegisterFormContainer = styled.div`
 export const RegisterFormBox = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: center;
+  gap: 20px;
   padding: 10px;
   border-radius: 10px;
+
+  width: 500px;
+
+  background-color: #ffffff91;
+`;
+
+export const RegisterFormTitle = styled.h2`
+  font-size: 32px;
 `;
 
 export const Label = styled.label`
@@ -21,28 +30,44 @@ export const Label = styled.label`
   justify-content: space-between;
   flex-direction: column;
   gap: 5px;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  width: 100%;
 `;
 
 export const Input = styled.input`
-  font-size: 16px;
-
-  background: #d7d1c9;
+  font-size: 18px;
+  background: #66999963;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #000;
 `;
 
 export const Button = styled.button`
-  width: 300px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: #aa9a8e;
-  color: black;
-
-  transition: all 0.5s ease;
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Caveat', sans-serif;
+  font-size: 20px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  width: 200px;
+  transition-duration: 150ms;
+  transition-property: all;
 
   &:hover {
-    background-color: #988270;
-    color: #262626;
+    background-color: #008296;
+    box-shadow: 0 0 10px #008296, 0 0 20px #00b2b2, 0 0 40px #008296;
+    color: white;
   }
 `;

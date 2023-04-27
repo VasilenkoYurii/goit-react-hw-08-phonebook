@@ -13,6 +13,8 @@ export const WeatherWrapper = styled.div`
   text-align: center;
   box-shadow: rgb(33 33 33) 0px 2px 10px 1px;
   padding: 20px;
+  border-radius: 3px;
+
   @media screen and (max-width: 750px) {
     padding: 15px;
   }

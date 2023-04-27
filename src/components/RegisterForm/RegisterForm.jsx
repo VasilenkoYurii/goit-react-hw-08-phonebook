@@ -6,6 +6,7 @@ import {
   Input,
   Button,
   RegisterFormContainer,
+  RegisterFormTitle,
 } from './RegisterForm.styled';
 
 export const RegisterForm = () => {
@@ -28,6 +29,7 @@ export const RegisterForm = () => {
   return (
     <RegisterFormContainer>
       <RegisterFormBox onSubmit={e => handleSubmit(e)}>
+        <RegisterFormTitle>Sign Up</RegisterFormTitle>
         <Label>
           Username
           <Input type="text" name="name" />

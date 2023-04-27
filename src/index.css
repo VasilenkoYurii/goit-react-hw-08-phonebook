@@ -21,13 +21,9 @@ code {
     monospace;
 }
 
-/* #root {
-  display: flex;
-  margin: 20px;
-
-  box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.75);
-  height: 94vh;
-} */
+#root {
+  width: 100%;
+}
 
 ul {
   list-style: none;
