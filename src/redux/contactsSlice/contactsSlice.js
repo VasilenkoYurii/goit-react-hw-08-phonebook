@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-hot-toast';
 import { fetchContacts, addContact, deleteContact } from './operetions';
 
 const handlePending = state => {
@@ -38,9 +39,25 @@ const contactsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
+        toast.success('Contact successfully added!', {
+          style: {
+            width: '300px',
+            height: '40px',
+            borderRadius: '10px',
+            fontSize: '20px',
+          },
+        });
       })
       .addCase(addContact.rejected, (state, action) => {
         handleRejected(state, action);
+        toast.error('Something went wrong, please try again.', {
+          style: {
+            width: '300px',
+            height: '40px',
+            borderRadius: '10px',
+            fontSize: '20px',
+          },
+        });
       })
       .addCase(deleteContact.pending, state => {
         handlePending(state);
@@ -52,9 +69,25 @@ const contactsSlice = createSlice({
           task => task.id === action.payload.id
         );
         state.items.splice(index, 1);
+        toast.success('Contact successfully deleted!', {
+          style: {
+            width: '300px',
+            height: '40px',
+            borderRadius: '10px',
+            fontSize: '20px',
+          },
+        });
       })
       .addCase(deleteContact.rejected, (state, action) => {
         handleRejected(state, action);
+        toast.error('Something went wrong, please try again.', {
+          style: {
+            width: '300px',
+            height: '40px',
+            borderRadius: '10px',
+            fontSize: '20px',
+          },
+        });
       });
   },
 });
