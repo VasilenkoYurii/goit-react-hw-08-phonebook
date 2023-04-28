@@ -19,7 +19,7 @@ export const Button = styled.button`
   text-align: center;
   text-decoration: none;
   user-select: none;
-  width: 100px;
+  width: 80px;
   transition-duration: 150ms;
   transition-property: all;
 
@@ -39,6 +39,11 @@ export const Item = styled.li`
 
 export const NameContainer = styled.div`
   display: flex;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 
 export const NamePrg = styled.p`

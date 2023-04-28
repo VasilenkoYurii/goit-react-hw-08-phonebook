@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { editContact } from 'redux/contactsSlice/operetions';
 
-import { addContact } from 'redux/contactsSlice/operetions';
 import {
   MainForm,
   Label,
@@ -12,11 +12,12 @@ import {
   ContactsformBackdrop,
   CloseBox,
   FormTitle,
-} from './ContactForm.styled';
+} from './EditContactForm.styled';
 
-function ContactForm({ closeModal }) {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+export const EditContactForm = ({ selectedContact, closeEditModal }) => {
+  const [id] = useState(selectedContact.id);
+  const [name, setName] = useState(selectedContact.name);
+  const [number, setNumber] = useState(selectedContact.number);
 
   const dispatch = useDispatch();
 
@@ -26,24 +27,26 @@ function ContactForm({ closeModal }) {
       : setNumber(e.currentTarget.value);
   };
 
-  const handleSubmit = (values, { resetForm }) => {
-    resetForm();
+  const handleSubmit = () => {
     const userObj = {
+      id: id,
       name: name,
       number: number,
     };
-    dispatch(addContact(userObj));
-    setName('');
-    setNumber('');
-    closeModal();
+    dispatch(editContact(userObj));
+    closeEditModal();
   };
 
   return (
     <ContactsformBackdrop>
       <Formik initialValues={(name, number)} onSubmit={handleSubmit}>
         <MainForm autoComplete="off">
-          <CloseBox onClick={() => closeModal()} />
-          <FormTitle>Add contact form</FormTitle>
+          <CloseBox
+            onClick={() => {
+              closeEditModal();
+            }}
+          />
+          <FormTitle>Edit contact form</FormTitle>
           <Label>
             Name
             <Input
@@ -67,15 +70,14 @@ function ContactForm({ closeModal }) {
             />
           </Label>
 
-          <Button type="submit">Add contact</Button>
+          <Button type="submit">Edit contact</Button>
         </MainForm>
       </Formik>
     </ContactsformBackdrop>
   );
-}
-
-ContactForm.prototype = {
-  closeModal: PropTypes.func.isRequired,
 };
 
-export default ContactForm;
+EditContactForm.propTypes = {
+  selectedContact: PropTypes.object.isRequired,
+  closeEditModal: PropTypes.func.isRequired,
+};

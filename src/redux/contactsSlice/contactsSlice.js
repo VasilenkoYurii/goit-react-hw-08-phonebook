@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-hot-toast';
-import { fetchContacts, addContact, deleteContact } from './operetions';
+import {
+  fetchContacts,
+  addContact,
+  deleteContact,
+  editContact,
+} from './operetions';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -9,6 +14,19 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+};
+
+const updateContact = (contactsArray, id, name, number) => {
+  return contactsArray.map(contact => {
+    if (contact.id === id) {
+      return {
+        id,
+        name: name,
+        number: number,
+      };
+    }
+    return contact;
+  });
 };
 
 const contactsSlice = createSlice({
@@ -79,6 +97,30 @@ const contactsSlice = createSlice({
         });
       })
       .addCase(deleteContact.rejected, (state, action) => {
+        handleRejected(state, action);
+        toast.error('Something went wrong, please try again.', {
+          style: {
+            width: '300px',
+            height: '40px',
+            borderRadius: '10px',
+            fontSize: '20px',
+          },
+        });
+      })
+      .addCase(editContact.fulfilled, (state, action) => {
+        const { id, name, number } = action.payload;
+        const updatedContacts = updateContact(state.items, id, name, number);
+        state.items = updatedContacts;
+        toast.success('Contact successfully changed!', {
+          style: {
+            width: '300px',
+            height: '40px',
+            borderRadius: '10px',
+            fontSize: '20px',
+          },
+        });
+      })
+      .addCase(editContact.rejected, (state, action) => {
         handleRejected(state, action);
         toast.error('Something went wrong, please try again.', {
           style: {
