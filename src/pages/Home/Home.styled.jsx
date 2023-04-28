@@ -6,15 +6,23 @@ export const HomeTitleBox = styled.div`
   height: 100%;
 
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
+  gap: 30px;
 
-  @media screen and (max-width: 550px) {
-    padding: 25px;
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
   }
 `;
 
 export const HomeTitle = styled.h1`
-  width: 700px;
+  width: 300px;
+  text-align: justify;
+
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
 `;
 
 export const NavLinkStyled = styled(NavLink)`

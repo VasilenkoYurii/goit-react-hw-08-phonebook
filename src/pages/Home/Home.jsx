@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <HomeTitleBox>
       <ParticlesLines />
-      <Weather />
+
       {isLoggedIn ? (
         <HomeTitle>
           Greetings, thank you for registering and showing confidence in us, use
@@ -25,6 +25,7 @@ const HomePage = () => {
           <br /> Come and enjoy =)
         </HomeTitle>
       )}
+      <Weather />
     </HomeTitleBox>
   );
 };

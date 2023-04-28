@@ -28,7 +28,7 @@ const ContactItem = ({ selectedContact, openEditModal }) => {
     return (
       <Item key={id}>
         <NameContainer>
-          <NamePrg>{name}:</NamePrg>
+          <NamePrg>{name}</NamePrg>
           <NumberPrg>{number}</NumberPrg>
         </NameContainer>
         <ButtonContainer>

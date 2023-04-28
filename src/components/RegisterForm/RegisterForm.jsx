@@ -40,7 +40,12 @@ export const RegisterForm = () => {
         </Label>
         <Label>
           Password
-          <Input type="password" name="password" />
+          <Input
+            type="password"
+            name="password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="The password cannot be less than eight characters and must contain at least one number, one lowercase and one uppercase Latin letter."
+          />
         </Label>
         <Button type="submit">Register</Button>
       </RegisterFormBox>

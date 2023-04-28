@@ -7,7 +7,7 @@ const Filter = () => {
 
   return (
     <SearchLabel>
-      <SearchTitle>Find contscts by name</SearchTitle>
+      <SearchTitle>Find contsct by name</SearchTitle>
       <SearchInput
         type="text"
         onChange={e => {

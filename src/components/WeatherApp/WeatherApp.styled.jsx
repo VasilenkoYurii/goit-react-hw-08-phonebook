@@ -8,15 +8,18 @@ export const WeatherWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 450px;
+  width: 270px;
   background-color: rgba(226, 226, 226, 0.2);
   text-align: center;
   box-shadow: rgb(33 33 33) 0px 2px 10px 1px;
   padding: 20px;
   border-radius: 3px;
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 768px) {
     padding: 15px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 450px;
   }
 `;
 

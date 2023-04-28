@@ -12,7 +12,7 @@ export const AddContactsButton = styled.button`
   width: 100px;
   height: 100px;
   display: flex;
-  flex-direction: column;
+
   align-items: center;
   justify-content: center;
 

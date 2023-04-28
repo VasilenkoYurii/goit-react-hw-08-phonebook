@@ -61,6 +61,7 @@ function ContactForm({ closeModal }) {
               type="tel"
               name="number"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              pattern="[\d ()+]*"
               required
               onChange={onChange}
               value={number}
