@@ -16,13 +16,28 @@ export const RegisterFormBox = styled.form`
   padding: 10px;
   border-radius: 10px;
 
-  width: 500px;
+  width: 270px;
 
   background-color: #ffffff91;
+
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+  border-bottom: 2px double black;
+
+  transition: all 0.5s ease;
+
+  @media screen and (min-width: 768px) {
+    width: 500px;
+  }
 `;
 
 export const RegisterFormTitle = styled.h2`
-  font-size: 32px;
+  font-size: 22px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 export const Label = styled.label`
@@ -31,18 +46,26 @@ export const Label = styled.label`
   flex-direction: column;
   gap: 5px;
 
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 
   width: 100%;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export const Input = styled.input`
-  font-size: 18px;
+  font-size: 16px;
   background: #66999963;
   outline: none;
   border: none;
   border-bottom: 1px solid #000;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 export const Button = styled.button`

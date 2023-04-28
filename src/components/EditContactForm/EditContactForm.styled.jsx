@@ -24,19 +24,30 @@ export const MainForm = styled(Form)`
   gap: 20px;
   padding: 10px;
   border-radius: 10px;
-  width: 500px;
+  width: 270px;
 
-  background-color: #ffffffdb;
+  background-color: #fffffff2;
+
+  @media screen and (min-width: 768px) {
+    width: 500px;
+  }
 `;
 
 export const CloseBox = styled(GrClose)`
-  top: 20px;
-  right: 20px;
-  width: 30px;
-  height: 30px;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
 
   position: absolute;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 export const FormTitle = styled.h2`

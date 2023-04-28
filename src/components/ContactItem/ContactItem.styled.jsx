@@ -33,8 +33,13 @@ export const Button = styled.button`
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 
   border-bottom: 1px solid #fff;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const NameContainer = styled.div`

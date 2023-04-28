@@ -2,13 +2,29 @@ import styled from '@emotion/styled';
 
 export const UserMenuBox = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 4px;
+
+  @media screen and (min-width: 768px) {
+    gap: 15px;
+    flex-direction: row;
+  }
 `;
 
 export const UserPrg = styled.p`
-  margin-right: 15px;
-  font-size: 22px;
+  text-align: center;
+  font-size: 18px;
   color: white;
+  width: 100px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+    width: auto;
+  }
 `;
 
 export const UserButton = styled.button`

@@ -1,18 +1,26 @@
 import styled from '@emotion/styled';
 
 export const ContactsPageContainer = styled.div`
-  width: 1100px;
+  width: 300px;
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1100px;
+  }
 `;
 
 export const AddContactsButton = styled.button`
   position: absolute;
-  top: 20px;
-  right: 55px;
-  width: 100px;
-  height: 100px;
-  display: flex;
+  top: 140px;
+  right: 50px;
+  width: 200px;
+  height: 30px;
 
+  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -38,6 +46,13 @@ export const AddContactsButton = styled.button`
     background-color: #008296;
     box-shadow: 0 0 10px #008296, 0 0 20px #00b2b2, 0 0 40px #008296;
     color: white;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 20px;
+    right: 55px;
+    width: 100px;
+    height: 100px;
   }
 `;
 
