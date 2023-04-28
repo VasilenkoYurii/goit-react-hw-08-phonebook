@@ -1,14 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contactsSlice/operetions';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { HiOutlineUserAdd } from 'react-icons/hi';
 
 import ContactForm from 'components/ContactForm/ContactForm';
 import Filter from 'components/Filter/Filter';
 import ContactsList from 'components/ContactsList/ContactsList';
 import { getLoading } from 'redux/contactsSlice/selectors';
-import { ContactsPageBox } from './Contacts.styled';
+import {
+  ContactsPageBox,
+  LoadingBox,
+  ContactsPageContainer,
+  AddContactsButton,
+} from './Contacts.styled';
 
 const ContactsPage = () => {
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const isLoading = useSelector(getLoading);
 
@@ -16,15 +23,27 @@ const ContactsPage = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  const showContactModal = () => {
+    setShowModal(() => true);
+  };
+
+  const closeContactsModal = () => {
+    setShowModal(() => false);
+  };
+
   return (
-    <>
+    <ContactsPageContainer>
       <ContactsPageBox>
-        <ContactForm />
+        <AddContactsButton onClick={() => showContactModal()}>
+          <HiOutlineUserAdd />
+          Add contact
+        </AddContactsButton>
+        {showModal && <ContactForm closeModal={closeContactsModal} />}
         <Filter />
+        <LoadingBox>{isLoading && 'Request in progress...'}</LoadingBox>
+        <ContactsList />
       </ContactsPageBox>
-      <div>{isLoading && 'Request in progress...'}</div>
-      <ContactsList />
-    </>
+    </ContactsPageContainer>
   );
 };
 

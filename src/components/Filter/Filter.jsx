@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { SearchLabel, SearchInput } from './Filter.styled';
+import { SearchLabel, SearchInput, SearchTitle } from './Filter.styled';
 import { changeFilter } from 'redux/filterSlice/filterSlice';
 
 const Filter = () => {
@@ -7,7 +7,7 @@ const Filter = () => {
 
   return (
     <SearchLabel>
-      Find contscts by name
+      <SearchTitle>Find contscts by name</SearchTitle>
       <SearchInput
         type="text"
         onChange={e => {

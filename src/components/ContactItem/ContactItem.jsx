@@ -3,7 +3,13 @@ import { getVisibleContacts } from 'helperFunctions/helperFunctions';
 import { getContacts } from 'redux/contactsSlice/selectors';
 import { getFiltedContacts } from 'redux/filterSlice/filterSlice';
 import { deleteContact } from 'redux/contactsSlice/operetions';
-import { Button, Item, NameContainer, NamePrg } from './ContactItem.styled';
+import {
+  Button,
+  Item,
+  NameContainer,
+  NamePrg,
+  NumberPrg,
+} from './ContactItem.styled';
 
 const ContactItem = () => {
   const dispatch = useDispatch();
@@ -18,7 +24,7 @@ const ContactItem = () => {
       <Item key={id}>
         <NameContainer>
           <NamePrg>{name}:</NamePrg>
-          <p>{number}</p>
+          <NumberPrg>{number}</NumberPrg>
         </NameContainer>
         <Button
           type="button"
